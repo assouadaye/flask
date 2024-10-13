@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat entre deux utilisateurs</title>
+</head>
+<body>
+    <h1>Chat entre User 1 et User 2</h1>
+
+    <!-- Formulaire pour envoyer un message -->
+    <form method="POST" action="/">
+        <label for="username">Choisissez l'utilisateur :</label>
+        <select name="username" id="username" required>
+            <option value="user1">User 1</option>
+            <option value="user2">User 2</option>
+        </select><br><br>
+
+        <label for="message">Message :</label><br>
+        <textarea name="message" id="message" rows="4" cols="50" required></textarea><br><br>
+
+        <button type="submit">Envoyer</button>
+    </form>
+
+    <hr>
+
+    <!-- Afficher les messages -->
+    <h2>Messages échangés :</h2>
+    <div id="chat">
+        {% for user, message in messages %}
+            <p><strong>{{ user }}:</strong> {{ message }}</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
